@@ -1,0 +1,29 @@
+/*
+** Placeholders - Quote
+** ----------------------------------------------------------------------------- */
+
+%quote {
+  p:not([class]) {
+    @extend %type-quote;
+    max-width: 65rem;
+
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  cite {
+    @extend %type-copy-medium;
+    display: block;
+    color: $color-gray-dark;
+    font-weight: 500;
+
+    &::before {
+      content: '– ';
+    }
+
+    &:not(:first-child) {
+      margin-top: 2em;
+    }
+  }
+}

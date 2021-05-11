@@ -1,0 +1,14 @@
+/*
+** Blocks / Pullquote
+** -----------------------------------------------------------------------------*/
+
+.wp-block-pullquote {
+  @include spacer-relative(3, top, padding, 0.15);
+  @include spacer-relative(3, bottom, padding, 0.15);
+  @extend %quote;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 3px solid $color-gray-light;
+  border-bottom: 3px solid $color-gray-light;
+}

@@ -1,0 +1,94 @@
+/*
+** Module - Widget
+**
+** A component for displaying sidebar widgets
+** ----------------------------------------------------------------------------- */
+
+.widget {
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint(md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &:not(:first-child) {
+    margin-top: var(--column-gutter);
+  }
+}
+
+.widget__title {
+  @extend %heading-h4;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+// Socials
+.widget_socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Categories
+.widget_categories {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -0.5rem;
+
+    @include breakpoint(md) {
+      justify-content: flex-start;
+    }
+  }
+
+  li {
+    display: contents;
+  }
+
+  a {
+    @extend %button-tab;
+    margin: 0.5rem;
+    width: calc(50% - 1rem);
+  }
+}
+
+// Tags
+.widget_tag_cloud {
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+  }
+
+  .tag-cloud-link {
+    @extend %button-tab;
+    margin: 0.5rem;
+    width: calc(50% - 1rem);
+    font-size: 1.4rem !important;
+  }
+
+  .tag-link-count {
+    margin-left: 0.25em;
+    opacity: 0.5;
+  }
+}
+
+// Recent posts
+.widget_recent_entries {
+  .post-date {
+    opacity: 0.5;
+    font-size: 0.9em;
+  }
+
+  li:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}

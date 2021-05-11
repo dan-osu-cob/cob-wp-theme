@@ -1,0 +1,63 @@
+/*
+** Placeholders - Forms
+** ----------------------------------------------------------------------------- */
+
+// Input initial styles
+%input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: normal;
+  appearance: none;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[rows] {
+    resize: none;
+  }
+
+  &[type] {
+    @extend %ellipsis;
+  }
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+  }
+
+  &:-webkit-autofill {
+    animation-delay: 1s;
+    animation-name: autofill;
+    animation-fill-mode: both;
+  }
+}
+
+%input-block {
+  @extend %input;
+  @extend %type-caption;
+  padding: 0.75em 1em;
+  background-color: $color-white;
+  border: 1px solid;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+%input-number {
+  @extend %input;
+  @extend %input-block;
+  width: 5.5rem;
+  padding: 0.33em;
+  text-align: center;
+}

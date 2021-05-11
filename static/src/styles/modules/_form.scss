@@ -1,0 +1,129 @@
+/*
+** Module - Form
+**
+** Common form styles
+** ----------------------------------------------------------------------------- */
+
+.form {
+  position: relative;
+  width: 100%;
+}
+
+.form__content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25em;
+  transition: opacity $transition-duration;
+
+  @include breakpoint(md) {
+    gap: 2em 1.25em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .is-loading & {
+    opacity: 0.25;
+  }
+}
+
+.form__fieldset {
+  display: contents;
+
+  &[disabled] {
+    display: none;
+  }
+}
+
+.form__field {
+  position: relative;
+  grid-column: span 1;
+
+  &--wide {
+    @include breakpoint(md) {
+      grid-column: span 2;
+    }
+  }
+
+  &--cta {
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+  }
+}
+
+.form__inner {
+  position: relative;
+}
+
+.form__label {
+  @extend %type-caption;
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.form__input {
+  @extend %input;
+  @extend %input-block;
+}
+
+.form__checkbox {
+  @extend %type-caption;
+}
+
+.form__note {
+  @extend %type-caption;
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.75em;
+  padding: 0.5em 0.25em;
+  background-color: rgba($color-white, 0.75);
+  border-radius: 0.5em;
+  user-select: none;
+  pointer-events: none;
+
+  &.is-invalid {
+    color: $color-status-error;
+  }
+}
+
+.form__message {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+  text-align: center;
+
+  &[data-status='error'] {
+    @include spacer-relative(1, bottom);
+    @extend %heading-h4;
+    color: $color-status-error;
+  }
+
+  &[data-status='success'] {
+    @extend %heading-h3;
+    min-height: 10em;
+    color: $color-status-success;
+  }
+
+  &.is-visible {
+    display: flex;
+  }
+}
+
+.form__errors {
+  @extend %type-caption;
+  color: $color-status-error;
+
+  &.filled {
+    margin-top: 1rem;
+  }
+}
+
+@keyframes autofill {
+  0%, 100% {
+    color: currentColor;
+    background: transparent;
+  }
+}

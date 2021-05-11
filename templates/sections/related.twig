@@ -1,0 +1,18 @@
+{% if related %}
+    {% embed 'partials/section.twig' with { padding: 'md' } %}
+        {% block content %}
+            <div class="container">
+                <div class="section__component section__component--xs section__component--separated">
+                    {% include 'partials/lead.twig' with {
+                        alignment: 'left',
+                        title: __('Related articles', 'osubs')
+                    } %}
+                </div>
+
+                <div class="section__component section__component--xs">
+                    {% include 'partials/posts/list.twig' with { posts: related } %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endif %}

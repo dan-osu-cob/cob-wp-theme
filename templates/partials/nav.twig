@@ -1,0 +1,22 @@
+<ul class="nav-{{ type }} {{ class }}">
+    {% for item in items | default(nav.get_items) %}
+        {% set extra_classes = [] %}
+
+        {% set scroller = item.id ? fn('get_field' , 'is_scroller', item.id) : null %}
+        {% set anchor = item.id ? fn('get_field' , 'anchor', item.id) : null %}
+
+        <li class="nav-{{ type }}__item {{ item.children | length ? 'u-dropdown__trigger' : '' }} {{ item.classes | default([]) | merge(extra_classes) | join(' ') }}">
+            {% set link = item.link | default(item.get_link) %}
+
+            {% if '#' == link %}
+                <button class="nav-{{ type }}__link" {{ scroller ? 'data-scroll' }}>
+                    {{ item.title }}{{ type == 'primary' and item.target == '_blank' ? ' &raquo;' }}
+                </button>
+            {% else %}
+                <a href="{{ link }}{{ anchor ? anchor }}" class="nav-{{ type }}__link" {{ item.target ? 'target=' ~ item.target }} {{ scroller ? 'data-scroll' }}>
+                    {{ item.title }}{{ type == 'primary' and item.target == '_blank' ? ' &raquo;' }}
+                </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,49 @@
+/*
+** Module - Nav primary
+**
+** Primary navigation
+** ----------------------------------------------------------------------------- */
+
+.nav-primary {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(lg) {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+.nav-primary__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-top: -1px;
+  padding: var(--head-padding) 0;
+  border-top: 1px solid $color-gray;
+  border-bottom: 1px solid $color-gray;
+  font-size: 1.6rem;
+  font-family: $font-stratum;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  @include breakpoint(lg) {
+    margin-top: 0;
+    margin-left: -1px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid $color-gray;
+    border-right: 1px solid $color-gray;
+  }
+
+  &:hover {
+    color: $color-red;
+  }
+
+  .is-featured > &,
+  .current-menu-item > & {
+    color: $color-red;
+  }
+}

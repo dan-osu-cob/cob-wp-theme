@@ -1,0 +1,58 @@
+<footer class="page-foot" {{ options.footer_bg ? "style='background-image: url(#{options.footer_bg})'" }}>
+    <div class="container">
+        <div class="row">
+            <div class="column column--md-3 column--lg-3">
+                <div class="page-foot__section">
+                    {% if options.footer_title %}
+                        <h5 class="page-foot__title">{{ options.footer_title }}</h5>
+                    {% endif %}
+
+                    {% if options.footer_description %}
+                        <p class="page-foot__description">{{ options.footer_description }}</p>
+                    {% endif %}
+                </div>
+
+                {% if navs.bottom and navs.bottom.get_items %}
+                    <div class="page-foot__section">
+                        {% include 'partials/nav.twig' with { type: 'secondary', items: navs.bottom.get_items } %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="column column--md-3 column--lg-6">
+                <div class="page-foot__section page-foot__section--center">
+                    {% include 'partials/socials.twig' %}
+                </div>
+            </div>
+
+            <div class="column column--md-3 column--lg-3">
+                <div class="page-foot__section">
+                    <h5 class="page-foot__title">{{ __('Questions', 'osubs') }}</h5>
+                    <p>
+                        {{ __('Phone', 'osubs') }}: <a href="tel:{{ options.contact_phone }}">{{ options.contact_phone }}</a></br>
+                        <a href="mailto:{{ options.contact_email }}"><strong>{{ __('Email us', 'osubs') }}</strong></a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="page-foot__bottom">
+                    <a href="https://business.oregonstate.edu" target="_blank">
+                        <img src="{{ theme_link }}/images/logo-cob.svg" alt="" class="page-foot__logo">
+                    </a>
+
+                    <div class="page-foot__copy">
+                        {% if options.footer_copy %}
+                            <p>{{ options.footer_copy | replace({ '{year}': 'now' | date('Y') }) }}</p>
+                        {% endif %}
+
+                        {% if navs.footer and navs.footer.get_items %}
+                            {% include 'partials/nav.twig' with { type: 'tertiary', items: navs.footer.get_items } %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /.page-foot -->

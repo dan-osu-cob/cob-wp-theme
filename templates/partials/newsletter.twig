@@ -1,0 +1,28 @@
+<div class="newsletter newsletter--{{ direction | default('horizontal') }} {{ bordered ? 'newsletter--bordered' }}">
+    {% if icon %}
+        <div class="newsletter__icon">
+            {% include 'partials/icon.twig' with { icon: 'book' } %}
+        </div>
+    {% endif %}
+
+    <div class="newsletter__lead">
+        {% include 'partials/lead.twig' with {
+            alignment: 'center',
+            titles: [{title: options.newsletter_title, size: icon ? 'h3' : 'h2' }],
+            copy: options.newsletter_copy,
+        } %}
+    </div>
+
+    <form action="{{ options.newsletter_form_url }}" method="post" class="newsletter__form" target="_blank">
+        <input type="email" name="E-mail Address" placeholder="{{ __('Enter email address', 'osubs') }}" class="newsletter__input" required>
+
+        <input type="hidden" name="Lead Source" value="Form: News Landing Universal Subscribe">
+        <input type="hidden" name="Opt-In" value="True">
+        <input type="hidden" name="_FORM_URL" value="">
+
+        <button type="submit" class="newsletter__button button">
+            {{ __('Subscribe', 'osubs') }}
+        </button>
+    </form>
+</div>
+<!-- /.newsletter -->

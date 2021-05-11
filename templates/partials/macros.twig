@@ -1,0 +1,11 @@
+{% macro svg_image(image, responsive) %}
+    {% set image = Image(image) %}
+
+	{% if image.src %}
+		{% if 'svg' in image.src %}
+			{{ get_svg_content(image.src) }}
+		{% else %}
+			<img src="{{ image.src }}" alt="" {{ responsive ? 'width="' ~ image.width / 2 ~ '"' }}>
+		{% endif %}
+	{% endif %}
+{% endmacro %}

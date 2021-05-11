@@ -1,0 +1,32 @@
+{% include 'partials/head.twig' %}
+
+<body class="{{ body_class }}"
+    data-site-url="{{ site.url }}"
+    data-assets-path="{{ theme_link }}"
+    data-ajax-source="{{ site.url }}/wp-admin/admin-ajax.php">
+
+    {% if options.scripts_in_body_top %}
+        {{ options.scripts_in_body_top }}
+    {% endif %}
+
+    <div class="body-bag">
+        {% include 'sections/page-head.twig' %}
+        {% include 'sections/page-intro.twig' %}
+
+        {% block content %}
+            No content
+        {% endblock %}
+
+        <div style="margin-top: auto;">
+            {% include 'sections/page-foot.twig' %}
+        </div>
+    </div>
+    <!-- /.body-bag -->
+
+    {% if options.scripts_in_body_bottom %}
+        {{ options.scripts_in_body_bottom }}
+    {% endif %}
+
+    {% include 'partials/scripts.twig' %}
+</body>
+</html>

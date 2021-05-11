@@ -1,0 +1,66 @@
+/*
+** Module - Lead
+**
+** Common element displaying title, content and CTA button
+** ----------------------------------------------------------------------------- */
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  overflow: hidden;
+
+  &--align-left {
+    align-items: flex-start;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  &--align-center {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  &--align-right {
+    align-items: flex-end;
+    margin-left: auto;
+    text-align: right;
+  }
+}
+
+.lead__titles {
+  @include spacer-relative(0.75, top, margin, 0.15);
+}
+
+.lead__title {
+  @include spacer-relative(0.5, top, margin, 0.15);
+}
+
+.lead__copy {
+  @extend %type-copy-standard;
+}
+
+.lead__excerpt {
+  @extend %type-copy-large;
+}
+
+.lead__top,
+.lead__bottom {
+  @extend %type-copy-small;
+  color: $color-gray-dark;
+
+  a:not([class]) {
+    color: $color-red;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}
+
+.lead__bottom {
+  @include spacer-relative(1.25, top, margin, 0.15);
+}

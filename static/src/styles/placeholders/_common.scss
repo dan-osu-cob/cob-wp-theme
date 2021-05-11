@@ -1,0 +1,26 @@
+/*
+** Placeholders - Common
+** ----------------------------------------------------------------------------- */
+
+// Text ellipsis
+%ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Break word
+%break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// Link transitions
+%link-transition {
+  cursor: pointer;
+  transition-duration: $transition-duration;
+  transition-property: color, background-color, border, outline, box-shadow, opacity, transform;
+}

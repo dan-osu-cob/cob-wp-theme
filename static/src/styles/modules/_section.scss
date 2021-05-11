@@ -1,0 +1,73 @@
+/*
+** Module - Section
+**
+** Common section element
+** ----------------------------------------------------------------------------- */
+
+$paddings: (xs: 1.5, sm: 2, md: 3, lg: 4);
+
+.section {
+  position: relative;
+  background-color: var(--section-bg-color, #{$color-white});
+  color: var(--section-color, #{$color-black});
+  transition-property: padding, box-shadow;
+  transition-duration: $transition-duration;
+
+  // Paddings
+  @each $name, $size in $paddings {
+    &--p-#{$name} {
+      @include spacer-relative($size, top, padding, 0.15);
+      @include spacer-relative($size, bottom, padding, 0.15);
+    }
+
+    &--pt-#{$name} {
+      @include spacer-relative($size, top, padding, 0.15);
+    }
+
+    &--pb-#{$name} {
+      @include spacer-relative($size, bottom, padding, 0.15);
+    }
+  }
+
+  // Colors
+  &--color-black {
+    --section-bg-color: #{rgba($color-black, 0.825)};
+    --section-color: #{$color-white};
+  }
+
+  &--color-gray {
+    --section-bg-color: #{$color-gray-dark};
+    --section-color: #{$color-white};
+  }
+
+  &--color-red {
+    --section-bg-color: #{$color-red};
+    --section-color: #{$color-white};
+  }
+
+  // Sibling sections
+  &--color-white:not([class*="hidden-md"]) + &--color-white {
+    padding-top: 0;
+  }
+
+  &--color-white[class*="hidden-md"] + &--color-white {
+    @media (max-width: 767px) {
+      padding-top: 0;
+    }
+  }
+}
+
+.section__component {
+  // Paddings
+  @each $name, $size in $paddings {
+    &--#{$name} {
+      @include spacer-relative($size, top, margin, 0.15);
+    }
+  }
+
+  // Separator
+  &--separated {
+    @include spacer-relative(2, top, padding, 0.15);
+    border-top: 2px solid $color-gray;
+  }
+}

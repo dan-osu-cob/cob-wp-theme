@@ -1,0 +1,22 @@
+{% embed 'partials/toolbar.twig' with { label: __('Sort by topic', 'osubs') } %}
+    {% block element %}
+        <select onchange="onCatChange(this)" data-select>
+            <option value=" ">{{ __('All', 'osubs') }}</option>
+
+            {% for category in get_terms('category') %}
+                <option value="{{ category.id }}" {{ cat == category.id ? 'selected' }}>{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <script>
+            function onCatChange(dropdown) {
+                if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+                    location.href = "{{ site.url }}/?cat=" + dropdown.options[dropdown.selectedIndex].value;
+                }
+                else if ( dropdown.options[dropdown.selectedIndex].value == 0 ) {
+                    location.href = "{{ site.url }}";
+                }
+            }
+        </script>
+    {% endblock %}
+{% endembed %}

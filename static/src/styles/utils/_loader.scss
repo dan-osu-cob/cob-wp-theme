@@ -1,0 +1,35 @@
+/*
+** Utils - Loader
+** ----------------------------------------------------------------------------- */
+
+.u-loader {
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+
+  &.is-loading {
+    &::after {
+      @include u-overlay;
+      content: '';
+      z-index: $layer-utils;
+      background-image: image('loader-dark.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2em;
+
+      .section--color-purple &,
+      .section--color-navy &,
+      .section--color-green & {
+        background-image: image('loader.svg');
+      }
+    }
+  }
+
+  &[data-action-event='click'].is-loading {
+    opacity: 0.5;
+
+    &::after {
+      background-size: contain;
+    }
+  }
+}

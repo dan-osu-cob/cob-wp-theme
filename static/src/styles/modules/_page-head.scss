@@ -1,0 +1,64 @@
+/*
+** Module - Page head
+**
+** Main page header element
+** ----------------------------------------------------------------------------- */
+
+.page-head {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $layer-head;
+  background-color: $color-black;
+  color: $color-white;
+  transition: box-shadow $transition-duration;
+}
+
+.page-head__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoint(lg) {
+    align-items: stretch;
+  }
+}
+
+.page-head__logo {
+  border-left: 1px solid $color-gray;
+  border-right: 1px solid $color-gray;
+
+  > a {
+    display: block;
+    padding: var(--head-padding) 2rem;
+  }
+}
+
+.page-head__navs {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.page-head__nav {
+  display: flex;
+}
+
+.page-head__search {
+  display: flex;
+  align-items: center;
+}
+
+.page-head__hamburger {
+  position: relative;
+  z-index: $layer-overlay + 1;
+}
+
+.page-head__trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--head-height);
+}

@@ -1,0 +1,21 @@
+{% if highlight and highlight.enabled %}
+    {% embed 'partials/section.twig' with { padding: 'lg', color: highlight.color } %}
+        {% block content %}
+            <div class="container">
+                <div class="highlight row mt-xs-n2">
+                    {% if highlight.image %}
+                        <div class="column column--md-4 column--lg-5 mt-xs-2">
+                            <div class="highlight__image">
+                                <img src="{{ Image(highlight.image).src('1200x1200') }}" alt="">
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="highlight__content copy column {{ highlight.image ? 'column--md-5 column--lg-6 column--lg-offset-1' : 'column--lg-8 column--lg-offset-2' }} mt-xs-2">
+                        {{ highlight.content }}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endif %}

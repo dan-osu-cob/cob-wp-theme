@@ -1,0 +1,49 @@
+{% import 'partials/macros.twig' as macros %}
+
+{% if title %}
+    {% set titles = titles | default([{ title: title, size: 'h2' }]) %}
+{% endif %}
+
+<div class="lead {{ alignment ? 'lead--align-' ~ alignment }}">
+    {% if top %}
+        <div class="lead__top">
+            {{ top }}
+        </div>
+    {% endif %}
+
+    {% if titles %}
+        <div class="lead__titles">
+            {% for title_row in titles %}
+                {% if title_row.title %}
+                    <{{ title_row.size }} class="lead__title heading heading--{{ title_row.size }}">
+                        {{ title_row.title | highlight }}
+                    </{{ title_row.size }}>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+	{% if copy %}
+		<div class="lead__copy">
+            {{ copy | wpautop }}
+        </div>
+	{% endif %}
+
+	{% if excerpt %}
+		<div class="lead__excerpt">
+            {{ excerpt | wpautop }}
+        </div>
+	{% endif %}
+
+	{% if link %}
+		<div class="lead__bottom">
+			{% include 'partials/link.twig' with { class: 'button' } %}
+		</div>
+	{% endif %}
+
+    {% if bottom %}
+        <div class="lead__bottom">
+            {{ bottom }}
+        </div>
+    {% endif %}
+</div>

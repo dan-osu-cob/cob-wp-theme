@@ -1,0 +1,130 @@
+/*
+** Module - Page foot
+**
+** Main page footer module
+** ----------------------------------------------------------------------------- */
+
+.page-foot {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba($color-black, 0.9);
+  background-blend-mode: multiply;
+  color: $color-white;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+
+  @include breakpoint(md) {
+    padding-top: 3.5em;
+    padding-bottom: 7em;
+  }
+
+  a:hover {
+    opacity: 0.75;
+  }
+
+  .column {
+    &:not(:first-child) {
+      margin-top: 3em;
+
+      @include breakpoint(md) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.page-foot__inner {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.page-foot__column {
+  width: 100%;
+  max-width: 46rem;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(md) {
+    width: 33.3%;
+    text-align: center;
+  }
+
+  &:not(:first-child) {
+    margin-top: 2.5em;
+
+    @include breakpoint(md) {
+      margin-top: 0;
+    }
+  }
+
+  &:first-child,
+  &:last-child {
+    @include breakpoint(md) {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+}
+
+.page-foot__section {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
+
+  &--center {
+    @include breakpoint(md) {
+      align-items: center;
+    }
+  }
+}
+
+.page-foot__title {
+  color: $color-red;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.page-foot__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-foot__logo {
+  max-height: 6.4rem;
+
+  @include breakpoint(lg) {
+    max-height: 9rem;
+  }
+}
+
+.page-foot__copy {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &:not(:first-child) {
+    margin-top: 1.5em;
+  }
+
+  ul {
+    &:not(:first-child) {
+      margin-left: 0.5em;
+    }
+  }
+}

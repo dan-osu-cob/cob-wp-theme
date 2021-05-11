@@ -1,0 +1,32 @@
+/*
+** Utils - Icon
+** ----------------------------------------------------------------------------- */
+
+.u-icon {
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  pointer-events: none;
+
+  * {
+    display: block;
+    fill: currentColor;
+    stroke: none;
+  }
+
+  &--sm {
+    height: 0.75em;
+    width: 0.75em;
+  }
+
+  &--md {
+    height: 1em;
+    width: 1em;
+  }
+
+  &--lg {
+    height: 1.25em;
+    width: 1.25em;
+  }
+}

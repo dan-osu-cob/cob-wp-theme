@@ -1,0 +1,5 @@
+{% if title %}
+    <h3 class="widget__title">{{ title }}</h3>
+{% endif %}
+
+{% include 'partials/newsletter.twig' with { bordered: true, direction: 'vertical', icon: true, type: 'post' } %}

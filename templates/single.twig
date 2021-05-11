@@ -1,0 +1,57 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% set related_posts = post.meta('related') %}
+
+    {% embed 'partials/intro.twig' with {
+        image: post.thumbnail,
+        title: post.title,
+        excerpt: post.post_excerpt,
+    } %}
+        {% block top %}
+            {% for category in post.categories %}
+                <a href="{{ category.link }}">{{ category.name }}</a>{{ not loop.last ? ', ' }}
+            {% endfor %}
+        {% endblock %}
+
+        {% block bottom %}
+            {% if post.type == 'post' %}
+                {{ post.date('F j, Y') }}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+
+    {% embed 'partials/section.twig' with { padding_top: 'none' } %}
+        {% block content %}
+            <div class="container">
+                <div class="section__component section__component--sm section__component--separated">
+                    <div class="row {{ sidebar ? 'row--md-reverse' }} mt-xs-n2 mt-md-0">
+                        <div class="column column--md-6 column--lg-8 {{ not sidebar ? 'column--md-offset-1 column--lg-offset-2' }} mt-xs-2 mt-md-0">
+                            <div class="copy">{{ post.content }}</div>
+                        </div>
+
+                        {% if sidebar %}
+                            <div class="column column--md-3 column--lg-4 mt-xs-2 mt-md-0 visible-md-block">
+                                {{ sidebar }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+    {% include 'sections/highlight.twig' with { highlight: post.meta('highlight') } %}
+
+    {% if sidebar %}
+        {% embed 'partials/section.twig' with { class: 'hidden-md' } %}
+            {% block content %}
+                <div class="container">
+                    {{ sidebar }}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+
+    {% include 'sections/related.twig' with { related: related_posts } %}
+{% endblock %}

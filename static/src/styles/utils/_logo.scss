@@ -1,0 +1,21 @@
+/*
+** Utils - Logo
+** -----------------------------------------------------------------------------*/
+
+.u-logo {
+  display: block;
+  line-height: 1;
+  font-size: var(--logo-size);
+  overflow: hidden;
+  transition-property: width, opacity;
+  transition-duration: $transition-duration;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    display: block;
+    height: 1em;
+  }
+}

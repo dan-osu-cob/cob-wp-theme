@@ -1,0 +1,82 @@
+/*
+** Module - Newsletter
+**
+** Newsletter form element
+** ----------------------------------------------------------------------------- */
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &--bordered {
+    padding: 2rem;
+    border: 1px solid $color-gray-light;
+
+    @include breakpoint(lg) {
+      padding: var(--column-gutter);
+    }
+  }
+}
+
+.newsletter__lead {
+  @include spacer-relative(0.5, top, margin, 0.15);
+}
+
+.newsletter__form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 73rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  .newsletter--horizontal & {
+    @include breakpoint(sm) {
+      flex-direction: row;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
+}
+
+.newsletter__input {
+  @extend %input;
+  @extend %type-copy-standard;
+  flex: 1;
+  padding: 0.5em 1em;
+  background: rgba($color-gray-light, 0.2);
+  border: 1px solid $color-gray-light;
+  text-align: center;
+
+  .newsletter--horizontal & {
+    @include breakpoint(sm) {
+      text-align: left;
+    }
+  }
+}
+
+.newsletter__button {
+  margin-top: 1rem;
+
+  .newsletter--horizontal & {
+    @include breakpoint(sm) {
+      margin-top: 0;
+    }
+  }
+}
+
+.newsletter__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 11rem;
+  width: 11rem;
+  background: $color-red;
+  border-radius: 50%;
+  color: $color-white;
+  font-size: 7rem;
+}

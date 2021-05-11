@@ -1,0 +1,13 @@
+/*
+** Module - Heading
+**
+** Common heading styling
+** ----------------------------------------------------------------------------- */
+
+.heading {
+  @for $i from 1 through 6 {
+    &--h#{$i} {
+      @extend %heading-h#{$i} !optional;
+    }
+  }
+}

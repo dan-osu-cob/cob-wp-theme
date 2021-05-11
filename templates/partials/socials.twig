@@ -1,0 +1,23 @@
+{% set providers = ['Instagram', 'Facebook', 'Twitter', 'LinkedIn'] %}
+{% set socials = socials | default(options.socials) %}
+
+{% if socials | has_any(providers) %}
+    <nav class="nav-socials">
+        {% if title %}
+            <h3 class="nav-socials__title">{{ title }}</h3>
+        {% endif %}
+
+        <ul class="nav-socials__list">
+            {% for provider in providers %}
+                {% if socials[provider | lower] %}
+                    <li class="nav-socials__item">
+                        <a href="{{ socials[provider | lower] }}" title="{{ provider }}" target="_blank" class="nav-socials__link">
+                            {% include 'partials/icon.twig' with { icon: provider | lower } %}
+                            <span class="u-sr-only">{{ provider }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

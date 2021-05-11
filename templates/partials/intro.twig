@@ -1,0 +1,26 @@
+{% set top = top | default(block('top') is defined and block('top') | trim is not empty ? block('top')) %}
+{% set bottom = bottom | default(block('bottom') is defined and block('bottom') | trim is not empty ? block('bottom')) %}
+
+{% embed 'partials/section.twig' %}
+    {% block content %}
+        <div class="container">
+            <div class="row">
+                <div class="intro column column--lg-8 column--lg-offset-2">
+                    <div class="intro">
+                        <div class="intro__lead">
+                            {% include 'partials/lead.twig' with {
+                                alignment: 'center',
+                            } %}
+                        </div>
+
+                        {% if image %}
+                            <div class="intro__image">
+                                <img src="{{ Image(image).src('1460x972') }}" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

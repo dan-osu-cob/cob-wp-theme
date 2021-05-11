@@ -1,0 +1,43 @@
+/*
+** Module - Highlight
+**
+** Content highlighted section
+** ----------------------------------------------------------------------------- */
+
+.highlight__image {
+  @include spacer-relative(-4, top, margin, 0.15);
+  position: relative;
+  left: 50%;
+  width: 102vw;
+  transform: translateX(-51vw);
+
+  @include breakpoint(md) {
+    @include u-object-fit(100%);
+    @include u-overlay;
+    right: 5/9 * 100vw;
+    width: auto;
+    margin-top: 0;
+    transform: none;
+  }
+}
+
+.highlight__content {
+  // flex: 1;
+  // padding: calc(var(--column-gutter) * 1.5);
+
+  // @include breakpoint(md) {
+  //   padding: calc(var(--column-gutter) * 2);
+  // }
+
+  // @include breakpoint(lg) {
+  //   max-width: calc(var(--column-gutter) * 8 + 73rem);
+  //   margin-left: auto;
+  //   margin-right: auto;
+  //   padding: calc(var(--column-gutter) * 3) calc(var(--column-gutter) * 4);
+
+  //   &:not(:first-child) {
+  //     max-width: calc((var(--column-gutter) * 8) + (1110px * 7/12));
+  //     margin-left: 0;
+  //   }
+  // }
+}

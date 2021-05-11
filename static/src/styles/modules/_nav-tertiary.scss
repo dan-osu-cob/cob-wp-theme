@@ -1,0 +1,24 @@
+/*
+** Module - Nav tertiary
+**
+** Tertiary navigation
+** ----------------------------------------------------------------------------- */
+
+.nav-tertiary {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.nav-tertiary__item {
+  line-height: 1;
+
+  &:not(:first-child) {
+    margin-left: 0.75em;
+    padding-left: 0.75em;
+    border-left: 1px solid;
+  }
+}
+
+.nav-tertiary__link {
+  font-weight: bold;
+}

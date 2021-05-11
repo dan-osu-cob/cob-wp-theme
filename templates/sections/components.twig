@@ -1,0 +1,11 @@
+{% for component in components %}
+    <div class="section__component section__component--{{ options.inner_spacing | default('md') }} section__component--{{ component.acf_fc_layout }}" {{ options.title ? 'id="' ~ options.title | sanitize ~ '-' ~ loop.index ~ '"'}}>
+        {% if options.container == 'none' %}
+            {% include 'components/' ~ component.acf_fc_layout ~ '.twig' ignore missing %}
+        {% else %}
+            <div class="container container--{{ section.options.container }}">
+                {% include 'components/' ~ component.acf_fc_layout ~ '.twig' ignore missing %}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}

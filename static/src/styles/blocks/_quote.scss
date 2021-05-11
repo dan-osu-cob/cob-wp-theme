@@ -1,0 +1,10 @@
+/*
+** Blocks / Quote
+** -----------------------------------------------------------------------------*/
+
+.wp-block-quote {
+  @include spacer-relative(3, left, padding, 0.15);
+  @extend %quote;
+  border-left: 3px solid $color-gray-light;
+  text-align: left;
+}

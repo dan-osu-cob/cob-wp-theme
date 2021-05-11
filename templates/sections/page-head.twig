@@ -1,0 +1,50 @@
+<header class="page-head" data-sticky="#head-trigger">
+    <div class="container">
+        <div class="page-head__inner">
+            <h1 class="page-head__logo">
+                {% include 'partials/logo.twig' %}
+            </h1>
+
+            <nav class="page-head__navs visible-lg-flex">
+                {% if navs.primary %}
+                    <div class="page-head__nav">
+                        {% include 'partials/nav.twig' with { type: 'primary', nav: navs.primary } %}
+                    </div>
+                {% endif %}
+
+                <div class="page-head__search">
+                    {% include 'partials/search.twig' %}
+                </div>
+            </nav>
+            <!-- /.page-head__navs -->
+
+            <button class="page-head__hamburger u-hamburger hidden-lg" data-toggle="nav">
+                <span></span>
+            </button>
+        </div>
+        <!-- /.page-head__inner -->
+    </div>
+
+    <div class="overlay hidden-lg">
+        <div class="overlay__inner">
+            {% if navs.mobile and navs.mobile.get_items %}
+                <div class="overlay__nav">
+                    {% include 'partials/nav.twig' with { type: 'primary', nav: navs.mobile } %}
+                </div>
+            {% endif %}
+
+            {% if navs.categories and navs.categories.get_items %}
+                <div class="overlay__nav">
+                    {% include 'partials/nav.twig' with { type: 'primary', nav: navs.categories } %}
+                </div>
+            {% endif %}
+
+            <div class="overlay__search">
+                {% include 'partials/search.twig' %}
+            </div>
+        </div>
+    </div>
+</header>
+<!-- /.page-head -->
+
+<div class="page-head__trigger" id="head-trigger"></div>

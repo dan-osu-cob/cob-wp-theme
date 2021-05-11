@@ -1,0 +1,69 @@
+/*
+** Module - Page intro
+**
+** A introductory section element
+** ----------------------------------------------------------------------------- */
+
+.page-intro {
+  position: relative;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  color: $color-white;
+  text-align: center;
+
+  @include breakpoint(lg) {
+    padding-top: 4.5em;
+    padding-bottom: 4.5em;
+    background-size: 100% auto;
+
+    &--condensed {
+      padding-top: 2.5em;
+      padding-bottom: 2.5em;
+    }
+  }
+}
+
+.page-intro__overlay {
+  @include u-overlay;
+  background-color: $color-red;
+
+  [style] > & {
+    background-color: rgba($color-red, 0.85);
+  }
+}
+
+.page-intro__inner {
+  position: relative;
+  z-index: $layer-base;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-intro__title {
+  border-bottom: 2px solid $color-orange;
+
+  a {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.page-intro__description {
+  @include spacer-relative(0.33, top);
+  font-size: 1.6rem;
+
+  @include breakpoint(md) {
+    font-size: 1.8rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 2rem;
+  }
+}

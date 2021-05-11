@@ -1,0 +1,7 @@
+<div class="grid" data-grid>
+    {% for post in posts %}
+        <div class="grid__item">
+            {% include 'partials/posts/card.twig' %}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,20 @@
+/*
+** Module - Nav secondary
+**
+** Secondary navigation
+** ----------------------------------------------------------------------------- */
+
+.nav-secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-secondary__item {
+  &:not(:first-child) {
+    margin-top: 0.25em;
+  }
+}
+
+.nav-secondary__link {
+  font-weight: bold;
+}

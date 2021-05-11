@@ -1,0 +1,101 @@
+/*
+** Setup - Variables
+** ----------------------------------------------------------------------------- */
+
+// Color definitions
+$color-black:           #000000 !default;
+$color-white:           #FFFFFF !default;
+$color-creme:           #ECECEB !default;
+$color-gray-light:      #D2D2D2 !default;
+$color-gray:            #979797 !default;
+$color-gray-dark:       #707070 !default;
+$color-red:             #D73F09 !default;
+$color-blue:            #2B698B !default;
+$color-orange:          #FFB500 !default;
+
+$color-status-error:    #D44405 !default;
+$color-status-success:  #059245 !default;
+
+// Color statuses
+$color-status-success:  #2A5258 !default;
+$color-status-error:    #EF4136 !default;
+
+// Z-index Layers
+$layer-negative:        -1 !default;
+$layer-neutral:         0 !default;
+$layer-base:            1 !default;
+$layer-utils:           5 !default;
+$layer-head:            10 !default;
+$layer-overlay:         15 !default;
+
+// Font definitions
+$font-stratum:          'Stratum2', sans-serif !default;
+$font-kievit:           'Kievit Offc', sans-serif !default;
+
+$font-color:            $color-black !default;
+$font-family:           $font-kievit !default;
+$font-size:             1.8em !default;
+$font-weight:           normal !default;
+$font-line-height:      1.4 !default;
+
+// Transitions
+$transition-duration:   0.25s !default;
+
+// Borders
+$border-radius:         0 !default;
+
+// Spacing
+$spacer:                2rem !default;
+$spacers:               (
+  0: 0,
+  1: $spacer * 1,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4
+) !default;
+
+// Responsive display values
+$display-values:        (
+  block,
+  flex,
+) !default;
+
+// Base path
+$base-path:             '..' !default;
+
+// Grid container
+$grid-layouts:          (lg: 10) !default;
+$grid-container-gutter: 2.4rem !default;
+$grid-column-gutter:    3rem !default;
+
+// Grid definitions
+$grid-breakpoints: (
+  xs: (
+    min-width: 0,
+    container: 580px,
+    container-gutter: $grid-container-gutter * 0.666666,
+    column-gutter: $grid-column-gutter,
+    columns: 2,
+  ),
+  sm: (
+    min-width: 560px,
+    container: 580px,
+    container-gutter: $grid-container-gutter,
+    column-gutter: $grid-column-gutter,
+    columns: 4,
+  ),
+  md: (
+    min-width: 768px,
+    container: 840px,
+    container-gutter: $grid-container-gutter * 1.333333,
+    column-gutter: $grid-column-gutter,
+    columns: 9,
+  ),
+  lg: (
+    min-width: 1080px,
+    container: 1110px,
+    container-gutter: $grid-container-gutter * 1.333333,
+    column-gutter: $grid-column-gutter,
+    columns: 12,
+  )
+) !default;

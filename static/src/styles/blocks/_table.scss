@@ -1,0 +1,42 @@
+/*
+** Blocks / Table
+** -----------------------------------------------------------------------------*/
+
+.wp-block-table {
+  table {
+    min-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  thead {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  td, th {
+    padding: 0.5em 1em;
+    border: 1px solid $color-red;
+    vertical-align: top;
+
+    @include breakpoint(md) {
+      border-width: 2px;
+    }
+  }
+
+  &.is-style-stripes {
+    border: 0;
+
+    tr:nth-child(odd) {
+      background-color: lighten($color-red, 2.5%);
+    }
+
+    td, th {
+      border: 0;
+    }
+  }
+
+  &.has-fixed-layout {
+    table-layout: fixed;
+  }
+}

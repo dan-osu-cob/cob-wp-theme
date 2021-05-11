@@ -1,0 +1,101 @@
+/*
+** Setup - Mixins
+** ----------------------------------------------------------------------------- */
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin hidden-panel($active: '&.is-active') {
+  opacity: 0;
+  transform: translateY(-1em);
+  pointer-events: none;
+  transition-property: opacity, transform;
+  transition-duration: $transition-duration * 1.5;
+
+  #{$active} {
+    z-index: $layer-base;
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+    transition-duration: $transition-duration;
+  }
+}
+
+
+// Adds negative margins to the element
+@mixin negative-margins($properties, $columns: 12, $breakpoint: lg) {
+  @include breakpoint($breakpoint) {
+    position: static;
+    left: auto;
+    transform: none;
+
+    @if (index($properties, width)) {
+      width: var(--container-width);
+    }
+    @if (index($properties, max-width)) {
+      max-width: calc(var(--container-width) / 2);
+    }
+    @if (index($properties, margin-left) or index($properties, margin)) {
+      margin-left: calc((var(--container-width) - #{$copy-width}) / 2 * -1);
+    }
+    @if (index($properties, margin-right) or index($properties, margin)) {
+      margin-right: calc((var(--container-width) - #{$copy-width}) / 2 * -1);
+    }
+  }
+}
+
+
+// A helper for the spacing mixing
+@mixin _spacer($size, $direction, $property, $scale, $spacer) {
+  $spacer-breakpoints: (xs: 3, sm: 3, md: 2, lg: 1);
+
+  @if $scale >= 1 {
+    #{$property}-#{$direction}: calc(#{$spacer} * #{$size});
+  }
+  @else {
+    @each $breakpoint, $breakpoint-scale in $spacer-breakpoints {
+      @include breakpoint($breakpoint) {
+        #{$property}-#{$direction}: calc(#{$spacer} * #{$size * (1 - ($scale * $breakpoint-scale))});
+      }
+    }
+  }
+}
+
+
+// Adds flexible spacer to the element
+@mixin spacer($size: 1, $direction: top, $property: margin, $scale: 0.15, $spacer: $spacer, $force: false) {
+  @if ($property == margin and $size >= 0 and not $force) {
+    @if index(top left, $direction) {
+      &:not(:first-child) {
+        @include _spacer($size, $direction, $property, $scale, $spacer);
+      }
+    }
+
+    @else {
+      &:not(:last-child) {
+        @include _spacer($size, $direction, $property, $scale, $spacer);
+      }
+    }
+  }
+
+  @else {
+    @include _spacer($size, $direction, $property, $scale, $spacer);
+  }
+}
+
+
+// Adds font-size relative spacer to the element
+@mixin spacer-relative($size: 1, $direction: top, $property: margin, $scale: 1, $force: false) {
+  @include spacer($size, $direction, $property, $scale, $font-line-height * 1em, $force);
+}
+
+
+// Adds fixed spacer to the element
+@mixin spacer-fixed($size: 1, $direction: top, $property: margin, $scale: 1, $force: false) {
+  @include spacer($size, $direction, $property, $scale, null, $force);
+}

@@ -1,0 +1,7 @@
+{% if categories %}
+    {% include 'partials/nav-inline.twig' with { links: categories | map(category => {
+        url: category.link,
+        title: category.name,
+        active: term and term.id == category.id,
+    }) } %}
+{% endif %}

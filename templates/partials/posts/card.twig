@@ -1,0 +1,39 @@
+<article class="card">
+    {% if post.thumbnail %}
+        <a href="{{ post.link }}" class="card__image">
+            <img src="{{ Image(post.thumbnail).src('700x462') }}" alt="">
+        </a>
+    {% endif %}
+
+    <div class="card__content">
+        <div class="card__date">
+            {{ post.date('F j, Y') }}
+        </div>
+
+        <h4 class="card__title heading heading--h3">
+            <a href="{{ post.link }}">{{ post.title }}</a>
+        </h4>
+
+        {% if post.post_excerpt %}
+            <p class="card__description">
+                {{ post.post_excerpt }}
+            </p>
+        {% endif %}
+
+        <div class="card__link">
+            <a href="{{ post.link }}">
+                {{ post.type == 'post' ? __('Read the story', 'osubs') : __('Read more', 'osubs') }} >
+            </a>
+        </div>
+
+        {% if post.tags %}
+            <div class="card__meta">
+                <strong>{{ __('Tags', 'osubs') }}:</strong>
+
+                {% for tag in post.tags %}
+                    <a href="{{ tag.link }}">{{ tag.name }}</a>{{ not loop.last ? ', ' }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</article>

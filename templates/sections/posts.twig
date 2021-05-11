@@ -1,0 +1,24 @@
+{% embed 'partials/section.twig' with { padding: 'md' } %}
+    {% block content %}
+        <div class="container">
+            {% if posts | length %}
+                {% set pagination = posts.pagination({ show_all: false, mid_size: 2, end_size: 1 }) %}
+
+                <div class="section__component section__component--xs">
+                    {% include 'partials/posts/list.twig' %}
+                </div>
+
+                {% if pagination.pages | length > 1 %}
+                    <div class="section__component section__component--md">
+                        {% include 'partials/pagination.twig' %}
+                    </div>
+                {% endif %}
+            {% else %}
+                {% include 'partials/lead.twig' with {
+                    copy: __('Sorry, we couldn\'t find any content to display.', 'osubs'),
+                    alignment: 'center',
+                } only %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endembed %}

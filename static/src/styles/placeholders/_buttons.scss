@@ -1,0 +1,38 @@
+/*
+** Placeholders - Buttons
+** ----------------------------------------------------------------------------- */
+
+%button {
+  display: inline-block;
+  min-width: 16rem;
+  padding: 0.625em 1.5em;
+  background: $color-red;
+  color: $color-white;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $color-black;
+  }
+}
+
+%button-tab {
+  @extend %type-copy-small;
+  @extend %ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 13rem;
+  padding: 0.75em;
+  background: rgba($color-gray-light, 0.2);
+  border: 1px solid $color-gray-light;
+  border-radius: 2.5em;
+  text-align: center;
+
+  &[href]:hover {
+    background: $color-gray-light;
+  }
+}

@@ -1,0 +1,88 @@
+/*
+** Module - Card
+**
+** A component for displaying post excetpts
+** ----------------------------------------------------------------------------- */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba($color-black, 0.2);
+}
+
+.card__image {
+  @include u-object-fit(65%);
+  margin-bottom: -1px;
+
+  &[href]:hover {
+    opacity: 0.75;
+  }
+}
+
+.card__content {
+  padding: 2rem;
+  border: 1px solid rgba($color-gray-light, 0.7);
+  border-bottom: 3px solid $color-red;
+}
+
+.card__date {
+  color: $color-gray-dark;
+  font-size: 1.4rem;
+}
+
+.card__title {
+  color: $color-red;
+  font-family: $font-stratum;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 1.166;
+
+  &:not(:first-child) {
+    margin-top: 0.25em;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.card__description {
+  @extend %type-copy-standard;
+
+  &:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}
+
+.card__link {
+  &:not(:first-child) {
+    margin-top: 0.5em;
+  }
+
+  a {
+    @extend %type-copy-standard;
+    font-weight: 500;
+    color: $color-blue;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-red;
+    }
+  }
+}
+
+.card__meta {
+  font-size: 1.4rem;
+
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-red;
+    }
+  }
+}

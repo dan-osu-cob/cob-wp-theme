@@ -1,0 +1,17 @@
+<aside class="toolbar">
+    <div class="toolbar__component">
+        {% if title %}
+            <h5 class="toolbar__title heading heading--h4">{{ title }}</h5>
+        {% endif %}
+
+        {% if label %}
+            <h6 class="toolbar__label">{{ label }}</h6>
+        {% endif %}
+
+        {% if block('element') is defined and block('element') | trim is not empty %}
+            <div class="toolbar__element">
+                {{ block('element') }}
+            </div>
+        {% endif %}
+    </div>
+</aside>

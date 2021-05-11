@@ -1,0 +1,20 @@
+/*
+** Blocks / Image
+** -----------------------------------------------------------------------------*/
+
+.wp-block-image {
+  position: relative;
+  margin: 0;
+
+  &.alignwide,
+  &.alignfull {
+    img {
+      width: 100%;
+    }
+  }
+
+  figcaption {
+    @extend %caption;
+    margin: 0;
+  }
+}

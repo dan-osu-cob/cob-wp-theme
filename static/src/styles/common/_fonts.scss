@@ -1,0 +1,66 @@
+/*
+** Common - Fonts
+** ----------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Stratum2';
+  src: font('Stratum2-Regular.woff') format('woff'),
+       font('Stratum2-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stratum2';
+  src: font('Stratum2-Medium.woff') format('woff'),
+       font('Stratum2-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stratum2';
+  src: font('Stratum2-Bold.woff') format('woff'),
+       font('Stratum2-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stratum2';
+  src: font('Stratum2-Black.woff') format('woff'),
+       font('Stratum2-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kievit Offc';
+  src: font('KievitOffc.woff2') format('woff2'),
+       font('KievitOffc.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kievit Offc';
+  src: font('KievitOffc-Bold.woff2') format('woff2'),
+       font('KievitOffc-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kievit Offc';
+  src: font('KievitOffc-Medi.woff2') format('woff2'),
+       font('KievitOffc-Medi.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

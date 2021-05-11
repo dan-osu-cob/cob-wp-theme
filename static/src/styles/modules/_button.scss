@@ -1,0 +1,10 @@
+/*
+** Module - Button
+**
+** Common button element
+** ----------------------------------------------------------------------------- */
+
+.button {
+  @extend %button;
+  @extend %link-transition;
+}

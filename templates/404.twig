@@ -1,0 +1,10 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    {% include 'partials/intro.twig' with {
+        alignment: 'center',
+        title: __('Page not found', 'osubs'),
+        excerpt: __('Sorry, we couldn\'t find what you\'re looking for.', 'osubs'),
+        link: { url: site.url, title: __('Go back to homepage', 'osubs') },
+    } %}
+{% endblock %}

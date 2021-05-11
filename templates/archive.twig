@@ -1,0 +1,25 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    {% embed 'partials/section.twig' with { padding: 'sm' } %}
+        {% block content %}
+            <div class="container">
+                {% include 'partials/newsletter.twig' %}
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+    {% embed 'partials/section.twig' with { padding: 'xs' } %}
+        {% block content %}
+            <div class="container">
+                {% if page == 'category' %}
+                    {% include 'partials/posts/toolbar.twig' with { title: null } %}
+                {% else %}
+                    {% include 'partials/toolbar.twig' with { label: description } %}
+                {% endif %}
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+    {% include 'sections/posts.twig' %}
+{% endblock %}

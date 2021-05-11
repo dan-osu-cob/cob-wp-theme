@@ -1,0 +1,71 @@
+/*
+** Vendor - Newsletter
+** -----------------------------------------------------------------------------*/
+
+// [id*='aoform'] {
+//   width: 100%;
+// }
+
+// .ao-form {
+//   .ao-column-inner {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     width: 100%;
+//     max-width: 73rem;
+//     margin-left: auto;
+//     margin-right: auto;
+
+//     .newsletter--horizontal & {
+//       @include breakpoint(sm) {
+//         flex-direction: row;
+//       }
+//     }
+
+//     &:not(:first-child) {
+//       margin-top: 1em;
+//     }
+//   }
+
+//   .ao-form-field {
+//     @extend %input;
+//     @extend %type-copy-standard;
+//     flex: 1;
+//     padding: 0.5em 1em;
+//     background: rgba($color-gray-light, 0.2);
+//     border: 1px solid $color-gray-light;
+//     text-align: center;
+
+//     .newsletter--horizontal & {
+//       @include breakpoint(sm) {
+//         text-align: left;
+//       }
+//     }
+//   }
+
+//   .ao-form-submit {
+//     @extend %button;
+//     @extend %link-transition;
+//     margin-top: 1rem;
+//     width: 100%;
+
+//     .newsletter--horizontal & {
+//       @include breakpoint(sm) {
+//         margin-top: 0;
+//       }
+//     }
+//   }
+
+//   .newsletter__icon {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     height: 11rem;
+//     width: 11rem;
+//     background: $color-red;
+//     border-radius: 50%;
+//     color: $color-white;
+//     font-size: 7rem;
+//   }
+// }
+

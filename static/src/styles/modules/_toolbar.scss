@@ -1,0 +1,35 @@
+/*
+** Module - Toolbar
+**
+** A toolbar for displaying blog post filters
+** ----------------------------------------------------------------------------- */
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 6rem;
+  padding: 1rem 2rem;
+  background-color: rgba($color-gray-light, 0.2);
+  border-top: 2px solid $color-gray;
+  border-radius: 0 0 5px 5px;
+}
+
+.toolbar__component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.toolbar__title {
+  width: 100%;
+}
+
+.toolbar__label {
+  @include spacer-relative(1, right);
+  @extend %type-copy-small;
+}

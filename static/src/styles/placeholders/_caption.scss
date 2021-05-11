@@ -1,0 +1,10 @@
+/*
+** Placeholders - Caption
+** ----------------------------------------------------------------------------- */
+
+%caption {
+  @extend %type-caption;
+  padding: 0.4em 1em;
+  background: rgba($color-gray-light, 0.2);
+  text-align: center;
+}

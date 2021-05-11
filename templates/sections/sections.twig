@@ -1,0 +1,13 @@
+{% for section in sections %}
+    {% if section.components | filter(c => c.acf_fc_layout == 'navigation') | length %}
+        {% for component in section.components %}
+            {% include 'components/' ~ component.acf_fc_layout ~ '.twig' ignore missing %}
+        {% endfor %}
+    {% else %}
+        {% embed 'partials/section.twig' with section.options %}
+            {% block content %}
+                {% include 'sections/components.twig' with section %}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endfor %}

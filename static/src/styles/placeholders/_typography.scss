@@ -1,0 +1,54 @@
+/*
+** Placeholders - Typography
+** ----------------------------------------------------------------------------- */
+
+// Caption
+%type-caption {
+  color: rgba($color-black, 0.75);
+  font-size: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 1.285;
+}
+
+// Quote
+%type-quote {
+  color: $color-red;
+  font-family: $font-stratum;
+  font-size: 2.4rem;
+  line-height: 1.33;
+
+  @include breakpoint(md) {
+    font-size: 3rem;
+  }
+}
+
+// Copy
+%type-copy-small {
+  font-size: 1.4rem;
+  line-height: 1.285;
+}
+
+%type-copy-standard {
+  font-size: 1.6rem;
+  line-height: 1.375;
+}
+
+%type-copy-medium {
+  font-size: 1.8rem;
+  line-height: 1.375;
+}
+
+%type-copy-large {
+  color: $color-gray-dark;
+  font-size: 2.1rem;
+  line-height: 1.2;
+
+  @include breakpoint(md) {
+    font-size: 2.4rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 2.8rem;
+    line-height: 1.15;
+  }
+}

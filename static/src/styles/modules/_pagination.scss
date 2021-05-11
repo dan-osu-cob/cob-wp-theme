@@ -1,0 +1,84 @@
+/*
+** Module - Pagination
+**
+** Post/Event pagination
+** ----------------------------------------------------------------------------- */
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-gray-light;
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  min-width: 2.4rem;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 3px;
+  color: $color-blue;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include breakpoint(md) {
+    min-height: 2.8rem;
+    min-width: 2.8rem;
+  }
+
+  &[href]:hover {
+    background-color: $color-creme;
+  }
+
+  &--current,
+  &.current {
+    background-color: $color-creme;
+    color: $color-black;
+    font-weight: normal;
+  }
+
+  &--separator {
+    color: $color-black;
+    font-weight: normal;
+  }
+
+  &--arrow {
+    margin: -1px;
+    height: 4.2rem;
+    width: 4.2rem;
+    background-color: $color-red;
+    color: $color-white;
+    font-size: 2.5rem;
+
+    &[href]:hover {
+      background-color: $color-blue;
+    }
+
+    :first-child > & {
+      margin-right: 0.5em;
+    }
+
+    :last-child > & {
+      margin-left: 0.5em;
+    }
+  }
+
+  &--disabled {
+    background-color: $color-gray-light;
+    color: $color-white;
+  }
+}

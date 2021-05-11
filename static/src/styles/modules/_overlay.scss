@@ -1,0 +1,43 @@
+/*
+** Module - Overlay
+**
+** Mobile navigation/search component
+** -----------------------------------------------------------------------------*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: $layer-overlay;
+  width: 85%;
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-black;
+  color: darken($color-white, 15%);
+  transform: translate3d(101%, 0, 0);
+  transition: transform $transition-duration;
+  backface-visibility: hidden;
+
+  .has-nav-open & {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.overlay__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--head-height) var(--column-gutter) var(--column-gutter);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overlay__nav {
+  @include spacer-relative(2, bottom);
+}
+
+.overlay__search {
+  margin-top: auto;
+}

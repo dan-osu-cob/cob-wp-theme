@@ -1,0 +1,11 @@
+/*
+** Module - Intro
+**
+** Post/page intro section
+** ----------------------------------------------------------------------------- */
+
+.intro__image {
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}

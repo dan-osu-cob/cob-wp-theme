@@ -1,0 +1,19 @@
+/*
+** Blocks / Separator
+** -----------------------------------------------------------------------------*/
+
+.wp-block-separator {
+  width: 7.5em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3px;
+  background-color: $color-gray-light;
+
+  &.is-style-wide {
+    width: 100%;
+  }
+
+  &.is-style-dots {
+    width: 15em;
+  }
+}

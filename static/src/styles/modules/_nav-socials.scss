@@ -1,0 +1,39 @@
+/*
+** Module - Nav socials
+**
+** Social media button navigation
+** ----------------------------------------------------------------------------- */
+
+.nav-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-socials__title {
+  @include spacer-relative(0.5, right);
+}
+
+.nav-socials__list {
+  display: inline-flex;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.nav-socials__item {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.nav-socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  text-align: center;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

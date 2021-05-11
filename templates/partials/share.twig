@@ -1,0 +1,40 @@
+{% set providers = [
+    {
+        'name': 'Email',
+        'link': 'mailto:?subject=%title%&body=%url%',
+    },
+    {
+        'name': 'Facebook',
+        'link': 'https://facebook.com/sharer.php?u=%url%&amp;t=%title%+%url%',
+    },
+    {
+        'name': 'Twitter',
+        'link': 'https://twitter.com/share?url=%url%&amp;text=%title%',
+    },
+    {
+        'name': 'LinkedIn',
+        'link': 'https://www.linkedin.com/sharing/share-offsite/?url=%url%',
+    },
+] %}
+
+<nav class="nav-socials">
+    <h6 class="nav-socials__title">
+        {{ __('Share this:', 'osubs') }}
+    </h6>
+
+    <ul class="nav-socials__list">
+        {% for provider in providers %}
+            <li class="nav-socials__item">
+                {% set link = provider.link | replace({
+                    '%url%': post.link | url_encode,
+                    '%image%': post.thumbnail.src('1280x720') | url_encode,
+                    '%title%': post.title | url_encode,
+                }) %}
+
+                <a href="{{ link }}" class="nav-socials__link" title="{{ provider.name }}" target="_blank">
+                    {% include 'partials/icon.twig' with { icon: provider.name | lower } %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

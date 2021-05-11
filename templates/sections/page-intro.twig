@@ -1,0 +1,16 @@
+<div class="page-intro {{ is_singular ? 'page-intro--condensed' }}" {{ options.intro_bg ? "style='background-image: url(#{options.intro_bg})'" }}>
+    <div class="page-intro__overlay"></div>
+
+    <div class="container">
+        <div class="page-intro__inner">
+            <{{ is_front_page ? 'h1' : 'div' }} class="page-intro__title heading heading--h1">
+                <a href="{{ site.url }}" rel="index">{{ site.name }}</a>
+            </{{ is_front_page ? 'h1' : 'div' }}>
+
+            {% if site.description %}
+                <p class="page-intro__description">{{ site.description }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- /.page-intro -->

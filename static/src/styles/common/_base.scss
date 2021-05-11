@@ -1,0 +1,59 @@
+/*
+** Common - Base
+** ----------------------------------------------------------------------------- */
+
+:root {
+  font-size: 62.5%;
+  overflow-x: hidden;
+
+  @each $breakpoint, $opts in $grid-breakpoints {
+    @include breakpoint($breakpoint) {
+      --column-gutter: #{map-get($opts, 'column-gutter')};
+      --container-gutter: #{map-get($opts, 'container-gutter')};
+      --container-width: #{map-get($opts, 'container')};
+    }
+  }
+
+  // Logo size
+  --logo-size: 4.3rem;
+  --head-padding: 1rem;
+  --head-height: calc(var(--logo-size) + (var(--head-padding) * 2));
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $color-white;
+  color: $font-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $font-line-height;
+
+  &::after {
+    @include u-overlay(0, 'fixed');
+    content: '';
+    z-index: $layer-head - 1;
+    background-color: rgba($color-black, 0.85);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-300%);
+    transition: opacity $transition-duration, transform 0s $transition-duration;
+
+    @include breakpoint(lg) {
+      content: initial;
+    }
+  }
+
+  &.has-nav-open::after {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    transition: opacity $transition-duration 0s, transform 0s 0s;
+  }
+}
+
+a,
+button {
+  @extend %link-transition;
+}
