@@ -45,8 +45,6 @@ if ( ! class_exists( 'OSUBusinessSchoolTimber' ) ) :
 				'combine',
 				'highlight',
 				'find',
-				'truncate',
-				'sanitize',
 				'chunk',
 			];
 
