@@ -22,7 +22,7 @@
 
 $context = Timber::context();
 
-$context['post'] = new Timber\Post();
+$context['post']    = new Timber\Post();
 $context['sidebar'] = Timber::get_widgets( 'sidebar' );
 
 Timber::render( array( 'page-' . $context['post']->post_name . '.twig', 'page.twig', 'single.twig' ), $context );

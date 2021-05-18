@@ -1,17 +1,17 @@
 {
-  "name": "osu-wams/cob-wp-theme",
-  "description": "COB Business Matters Theme",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "type": "wordpress-theme",
-  "authors": [
-    {
-      "name": "Dan Goodwin",
-      "email": "dan.goodwin@oregonstate.edu"
+    "name": "osu-wams/cob-wp-theme",
+    "description": "COB Business Matters Theme",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Dan Goodwin",
+            "email": "dan.goodwin@oregonstate.edu"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.18",
+        "wpackagist-plugin/advanced-custom-fields": "^5"
     }
-  ],
-  "require": {
-    "timber/timber": "^1.18",
-    "wpackagist-plugin/advanced-custom-fields": "^5"
-  }
 }

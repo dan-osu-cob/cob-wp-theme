@@ -14,11 +14,11 @@ $context['posts'] = new Timber\PostQuery();
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 
-$archive_info = osubs_get_archive_info();
-$context['title'] = $archive_info['title'];
+$archive_info           = osubs_get_archive_info();
+$context['title']       = $archive_info['title'];
 $context['description'] = $archive_info['description'];
 
 $context['query'] = get_search_query();
-$context['page'] = 'search';
+$context['page']  = 'search';
 
 Timber::render( $templates, $context );

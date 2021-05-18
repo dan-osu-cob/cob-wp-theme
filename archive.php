@@ -19,21 +19,17 @@ $context['posts'] = new Timber\PostQuery();
 
 $templates = array( 'archive.twig', 'index.twig' );
 
-$archive_info = osubs_get_archive_info();
-$context['title'] = $archive_info['title'];
+$archive_info           = osubs_get_archive_info();
+$context['title']       = $archive_info['title'];
 $context['description'] = $archive_info['description'];
 
 if ( is_category() ) {
-    $context['page'] = 'category';
-    $context['cat'] = get_query_var( 'cat' );
-}
-
-elseif ( is_tag() ) {
-    $context['page'] = 'tag';
-}
-
-elseif ( is_post_type_archive() ) {
-    $context['page'] = 'archive';
+	$context['page'] = 'category';
+	$context['cat']  = get_query_var( 'cat' );
+} elseif ( is_tag() ) {
+	$context['page'] = 'tag';
+} elseif ( is_post_type_archive() ) {
+	$context['page'] = 'archive';
 }
 
 Timber::render( $templates, $context );

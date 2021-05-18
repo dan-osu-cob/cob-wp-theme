@@ -16,5 +16,10 @@ $context['sidebar'] = Timber::get_widgets( 'sidebar' );
 if ( post_password_required( $context['post']->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
-	Timber::render( array( 'single-' . $context['post']->ID . '.twig', 'single-' . $context['post']->post_type . '.twig', 'single-' . $context['post']->slug . '.twig', 'single.twig' ), $context );
+	Timber::render( array(
+		'single-' . $context['post']->ID . '.twig',
+		'single-' . $context['post']->post_type . '.twig',
+		'single-' . $context['post']->slug . '.twig',
+		'single.twig'
+	), $context );
 }
